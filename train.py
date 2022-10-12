@@ -19,7 +19,6 @@ userinp = input('''1. Start training
 3.Exit and Save\n''')
 
 while userinp != '3':
-
     if userinp == '1':
         iteration = int(input('Iterations No: '))
         w1, b1, w2, b2, acc = gradient_descent(X_train, Y_train, 0.1, iteration)
@@ -33,5 +32,3 @@ while userinp != '3':
     userinp = input('''1. Start training
 2. View weights and biases
 3.Exit and Save\n''')
-
-
