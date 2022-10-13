@@ -15,7 +15,6 @@ X_dev = data_dev[1:n]
 data_train = data[1000:m].T
 Y_train = data_train[0]
 X_train = data_train[1:n]
-    
 
 def init_params():
     W1 = np.random.rand(10, 784) - 0.5
