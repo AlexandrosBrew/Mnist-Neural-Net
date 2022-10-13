@@ -2,8 +2,12 @@ from turtle import update
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+import os
 
-data = pd.read_csv('C:/Users/vali/Documents/Datasets/mnist_train.csv')
+try:
+    data = pd.read_csv('C:/Users/vali/Documents/Datasets/mnist_train.csv')
+except:
+    data = pd.read_csv('/Users/alexandrosbrew/Documents/GitHub Repos/Datasets/mnist_train.csv')
 data = np.array(data)
 m, n = data.shape
 np.random.shuffle(data)
@@ -30,7 +34,7 @@ def ReLU(Z):
 def softmax(Z):
     A = np.exp(Z) / sum(np.exp(Z))
     return A
-    
+
 def forward_prop(W1, b1, W2, b2, X):
     Z1 = W1.dot(X) + b1
     A1 = ReLU(Z1)
@@ -101,7 +105,7 @@ def test_prediction(index, W1, b1, W2, b2):
     plt.show()
 
 def main():   
-    w1, b1, w2, b2 = gradient_descent(X_train, Y_train, 0.1, 500)
+    w1, b1, w2, b2 = gradient_descent(X_train, Y_train, 0.1, 20)
     test_prediction(5,w1,b1,w2,b2)
 
 if  __name__ == '__main__':
